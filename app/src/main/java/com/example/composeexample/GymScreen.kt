@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -31,12 +33,17 @@ import com.example.composeexample.ui.theme.Purple80
 
 @Composable
 fun GymScreen() {
-    Column(Modifier.verticalScroll(rememberScrollState())) {
-        listOfGyms.forEach { gym ->
+    LazyColumn {
+        items(listOfGyms) { gym ->
             GymItem(gym)
-
         }
     }
+//    Column(Modifier.verticalScroll(rememberScrollState())) {
+//        listOfGyms.forEach { gym ->
+//            GymItem(gym)
+//
+//        }
+//    }
 }
 
 
