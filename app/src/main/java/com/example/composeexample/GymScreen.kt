@@ -6,7 +6,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material3.Card
@@ -29,11 +31,17 @@ import com.example.composeexample.ui.theme.Purple80
 
 @Composable
 fun GymScreen() {
-    GymItem()
+    Column(Modifier.verticalScroll(rememberScrollState())) {
+        listOfGyms.forEach { gym ->
+            GymItem(gym)
+
+        }
+    }
 }
 
+
 @Composable
-fun GymItem() {
+fun GymItem(gym: Gym) {
 
     Card(
         shape = RoundedCornerShape(6.dp),
@@ -44,7 +52,7 @@ fun GymItem() {
     ) {
         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(8.dp)) {
             GymIcon(Icons.Filled.Place, Modifier.weight(0.15f))
-            GymDetails(Modifier.weight(0.85f))
+            GymDetails(gym, Modifier.weight(0.85f))
 
         }
     }
@@ -59,14 +67,14 @@ fun _GymItemPreview() {
 }
 
 @Composable
-fun GymDetails(modifier: Modifier) {
+fun GymDetails(gym: Gym, modifier: Modifier) {
 
     Column(
         modifier = modifier
     ) {
-        Text(text = "UpTown Gym", color = Purple40, style = MaterialTheme.typography.headlineSmall)
+        Text(text = "${gym.name}", color = Purple40, style = MaterialTheme.typography.headlineSmall)
         Text(
-            text = "20 El-Gehad, Mit Akaba ,Agouza , Giza Governorate , 3568925 ,Egypt",
+            text = "${gym.address}",
             style = MaterialTheme.typography.bodyMedium
         )
 
