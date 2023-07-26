@@ -19,6 +19,8 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -56,12 +58,12 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    MyLayout()
                 }
             }
         }
     }
 }
+
 
 
 @Preview(showBackground = true)
@@ -77,9 +79,9 @@ fun MyBoxLayout() {
 
 
     ) {
-        Text("Hello",Modifier.align(Alignment.TopStart), color = Color.White)
-        Text("Android",Modifier.align(Alignment.Center), color = Color.White)
-        Text("Cookies",Modifier.align(Alignment.BottomEnd), color = Color.White)
+        Text("Hello", Modifier.align(Alignment.TopStart), color = Color.White)
+        Text("Android", Modifier.align(Alignment.Center), color = Color.White)
+        Text("Cookies", Modifier.align(Alignment.BottomEnd), color = Color.White)
     }
 }
 
