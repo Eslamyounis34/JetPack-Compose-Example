@@ -48,6 +48,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.composeexample.ui.theme.BackGroundColor
 import com.example.composeexample.ui.theme.ComposeExampleTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
@@ -68,11 +69,11 @@ class MainActivity : ComponentActivity() {
                     SideEffect {
 
                         systemUiController.setSystemBarsColor(
-                            color = Color.Transparent,
-                            darkIcons = useDarkIcons
+                            color = BackGroundColor,
+                            darkIcons = !useDarkIcons
                         )
                     }
-                    GymScreen()
+                    LoginScreen()
                 }
             }
         }
